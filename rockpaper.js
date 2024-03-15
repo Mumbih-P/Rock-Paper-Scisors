@@ -45,7 +45,7 @@ function playGame(playerSelection) {
 
 function playRound(){
   for(let i=0; i<5; i++){
-    const playerSelection = prompt('Round ${i+1}: Enter your choice (rock, paper, or scissors):');
+    const playerSelection = prompt('Enter your choice Murife(rock, paper, or scissors):');
 
     const result = playGame(playerSelection);
     console.log(`Round ${i+1}: ${result}`);
