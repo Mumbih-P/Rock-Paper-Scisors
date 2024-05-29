@@ -1,44 +1,69 @@
-function playGame(playerSelection) {
-  // Generate a random choice for the computer
-  const choices = ["rock", "paper", "scissors"];
+document.addEventListener('DOMContentLoaded', () => {
+  let playerScore = 0;
+  let computerScore = 0;
 
-  playerSelection = playerSelection.toLowerCase();
+  function playGame(playerSelection) {
+      // Generate a random choice for the computer
+      const choices = ["rock", "paper", "scissors"];
 
-  if (!choices.includes(playerSelection)) {
-    return "Error: Invalid choice! Please enter 'rock', 'paper', or 'scissors'.";
+      playerSelection = playerSelection.toLowerCase();
+
+      if (!choices.includes(playerSelection)) {
+          displayResult("Error: Invalid choice! Please enter 'rock', 'paper', or 'scissors'.");
+          return;
+      }
+
+      const computerSelection = choices[Math.floor(Math.random() * choices.length)];
+
+      // Compare the choices and determine the winner
+      let result;
+      if (playerSelection === computerSelection) {
+          result = "It's a tie!";
+      } else if (
+          (playerSelection === "rock" && computerSelection === "scissors") ||
+          (playerSelection === "paper" && computerSelection === "rock") ||
+          (playerSelection === "scissors" && computerSelection === "paper")
+      ) {
+          result = "You win this round!";
+          playerScore++;
+      } else {
+          result = "Computer wins this round!";
+          computerScore++;
+      }
+
+      // Update the score display
+      displayResult(result);
+      updateScore();
+
+      // Check if there is a winner
+      if (playerScore === 5) {
+          displayResult("Congratulations! You won the game!");
+          resetGame();
+      } else if (computerScore === 5) {
+          displayResult("Computer wins the game! Better luck next time.");
+          resetGame();
+      }
   }
 
-  const computerSelection = choices[Math.floor(Math.random() * choices.length)];
-
-  // Compare the choices and determine the winner
-  if (playerSelection === computerSelection) {
-    return "It's a tie!";
-  } else if (
-    (playerSelection === "rock" && computerSelection === "scissors") ||
-    (playerSelection === "paper" && computerSelection === "rock") ||
-    (playerSelection === "scissors" && computerSelection === "paper")
-  ) {
-    return "You win Murife!";
-  } else {
-    return "Computer wins!";
-  }
-}
-
-function playRound() {
-  let validRounds = 0; // Counter for valid rounds
-
-  for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt(`Round ${i + 1}: Enter your choice (rock, paper, or scissors):`);
-
-    // Check if playerSelection is valid and not null or empty
-    if (playerSelection !== null && playerSelection !== "") {
-      const result = playGame(playerSelection);
-      console.log(`Round ${i + 1}: ${result}`);
-      validRounds++;
-    }
+  function displayResult(result) {
+      document.getElementById("result").textContent = result;
   }
 
-  console.log(`Total valid rounds played: ${validRounds}`);
-}
+  function updateScore() {
+      document.getElementById("score").textContent = `Player: ${playerScore} - Computer: ${computerScore}`;
+  }
 
-playRound();  
+  function resetGame() {
+      playerScore = 0;
+      computerScore = 0;
+      updateScore();
+  }
+
+  // Initialize the score display on page load
+  updateScore();
+
+  // Add event listeners to the buttons
+  document.getElementById('rock').addEventListener('click', () => playGame('rock'));
+  document.getElementById('paper').addEventListener('click', () => playGame('paper'));
+  document.getElementById('scissors').addEventListener('click', () => playGame('scissors'));
+});
