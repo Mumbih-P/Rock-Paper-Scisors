@@ -14,6 +14,11 @@ h2{
     color:brown;
     font-family: monospace;
 }
+.footnote{
+    font-size: medium;
+    font-style: italic;
+    font-family: monospace;
+}
 .choices {
     margin-bottom: 20px;
 }
