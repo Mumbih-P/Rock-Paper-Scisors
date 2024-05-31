@@ -5,10 +5,14 @@ body {
     background-color: #f0f0f0;
     color: #333;
 }
-
-h1{
+.info{
+    font-family: monospace;
+    font-style: italic;
+}
+h2{
     margin-bottom: 20px;
     color:brown;
+    font-family: monospace;
 }
 .choices {
     margin-bottom: 20px;
