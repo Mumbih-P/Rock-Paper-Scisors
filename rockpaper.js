@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
             (playerSelection === "paper" && computerSelection === "rock") ||
             (playerSelection === "scissors" && computerSelection === "paper")
         ) {
-            result = "You win this round!";
+            result = "You win this round Victor. but villain is still breathing. Keep going!";
             playerScore++;
         } else {
-            result = "Computer wins this round!";
+            result = "Computer wins this round! Keep going";
             computerScore++;
         }
 
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateScore();
 
         if (playerScore === 5) {
-            displayResult("Congratulations! You won the game!");
+            displayResult("Congratulations! Villain is no more. You're a Victor!");
             resetGame();
         } else if (computerScore === 5) {
             displayResult("Computer wins the game! Better luck next time.");
