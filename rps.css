@@ -93,10 +93,11 @@ footer {
 .main{
     display: flex;
     border: 3px solid red;
-    width: fit-content;
+    /* width: fit-content; */
     height: fit-content;
     justify-content: center;
-    /* margin-left: 100px; */
+    align-items: center;
+    margin-left: 100px;
     }
 
 .rock, .paper, .scissors{
@@ -109,8 +110,8 @@ footer {
 }
 .paper{
     border: 2px solid green;
-    height: 100px;
-    width: 100px;
+    height: fit-content;
+    width: fit-content;
 }
 .scissors{
     border: 2px solid green;
