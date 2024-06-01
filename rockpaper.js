@@ -7,12 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         playerSelection = playerSelection.toLowerCase();
 
-        if (!choices.includes(playerSelection)) {
-            displayResult("Error: Invalid choice! Please enter 'rock', 'paper', or 'scissors'.");
-            return;
-        }
-
-        const computerSelection = choices[Math.floor(Math.random() * choices.length)];
+       const computerSelection = choices[Math.floor(Math.random() * choices.length)];
 
         let result;
         if (playerSelection === computerSelection) {

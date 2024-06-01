@@ -61,7 +61,7 @@ color: white;
 }
 
 #result {
-    font-size: 20px;
+    font-size: 15px;
     margin-top: 20px;
     font-weight: bold;
 }
@@ -89,4 +89,36 @@ footer {
     margin-top: 10px;
     font-size: 14px;
     color: #666;
+}
+.main{
+    display: flex;
+    border: 3px solid red;
+    width: fit-content;
+    height: fit-content;
+    justify-content: center;
+    /* margin-left: 100px; */
+    }
+
+.rock, .paper, .scissors{
+    margin: 10px;
+}
+.rock{
+    border: 2px solid green;
+    height: 100px;
+    width: 100px;
+}
+.paper{
+    border: 2px solid green;
+    height: 100px;
+    width: 100px;
+}
+.scissors{
+    border: 2px solid green;
+    height: 100px;
+    width: 100px;
+}
+
+img{
+    height: 95px;
+    width: fit-content;
 }
